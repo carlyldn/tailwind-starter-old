@@ -1,0 +1,18 @@
+header:
+  - nav_title: Home
+    nav_url: /
+  - nav_title: About
+    nav_url: /about    
+  - nav_title: Services
+    nav_url: /services
+  - nav_title: Contact
+    nav_url: /contact
+footer:
+  - nav_title: Home
+    nav_url: /
+  - nav_title: About
+    nav_url: /about    
+  - nav_title: Services
+    nav_url: /services
+  - nav_title: Contact
+    nav_url: /contact

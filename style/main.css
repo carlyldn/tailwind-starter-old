@@ -1,12 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 /* Example of Extracting classes with @apply https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply */
-/* 
+
 @layer components {
-    .button {
-        @apply inline-block p-6 bg-blue-600 text-white hover:bg-blue-800 transition;
-    } 
-}
-*/
+    .font-italic {
+      @apply italic
+    }
+  }
+
+  body {
+    @apply font-body text-black font-light overflow-x-hidden w-[100vw] bg-main;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+      @apply font-heading font-light;
+  }
+
+  a {
+    @apply font-primary
+  }
+

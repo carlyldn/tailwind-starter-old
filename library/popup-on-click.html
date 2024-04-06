@@ -1,0 +1,144 @@
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<!-- This is the popup button -->
+<a class="subscribe-popup" data-target="popup-on-click" class="button">
+  <h4 class="cursor-pointer button">Subscribe</h4>
+</a>
+
+
+<!-- This is the popup -->
+<section class="popup p-[5%] relative" data-pop="popup-on-click">
+
+    <!--------------- Start sign-up form or content here ---------------->
+
+    <!--------------- End sign-up form or content here ---------------->
+    
+  
+    <!-- popup close button  -->
+      <div class="popupX">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>        
+      </div>
+  </section>
+
+    <!-- popup overlay -->
+  <div class="overlay"></div>
+      
+
+
+  <style>
+    /* Mobile styles first */
+    .overlay {
+    background-color: #eae7d7;
+    transition: background-color 1s;
+    position: fixed;
+  }
+  
+  .overlay.onscreen {
+    background-color: rgba(255,255,255,0.9);
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+  }
+  
+  .popup {
+    position: fixed;
+    left: 100vw;
+    z-index: 20;
+    background-color: white;
+  }
+
+  .popup.onscreen {
+    left: 2%;
+    right: 2%;
+    top: 5%;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .popupX {
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    width:3rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  /* iPad styles */
+  @media (min-width: 768px) {
+
+  .popup.onscreen {
+    left: 5%;
+    right: 5%;
+    top: 10%;
+    bottom: 10%;
+  }
+
+  .popupX {
+    position:absolute;
+    top:3rem;
+    right:2rem;
+    width:3rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+
+  .popup.onscreen {
+    padding: 5rem;
+    left: 20%;
+    right: 20%;
+    top: 5%;
+    bottom: 5%;
+  }
+  
+  .popupX {
+    position:absolute;
+    top:3rem;
+    right:2rem;
+    width:3rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+}
+
+</style>
+  
+<script>
+  $(document).ready(function(){
+  $(".subscribe-popup").click(function(){
+  var target = $(this).attr("data-target");
+  $(".popup").each(function(){
+  if($(this).attr("data-pop") == target){
+  $(this).addClass("onscreen");
+  }});
+  $(".overlay").addClass("onscreen");
+  });
+
+
+  $(".overlay").click(function(){
+  $(".popup").removeClass("onscreen");
+  $(".overlay").removeClass("onscreen");
+  });
+
+
+  $(".popupX").click(function(){
+  $(".popup").removeClass("onscreen");
+  $(".overlay").removeClass("onscreen");
+  })
+
+  });
+</script>
+  
+  
+  

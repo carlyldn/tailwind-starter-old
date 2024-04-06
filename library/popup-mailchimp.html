@@ -1,0 +1,188 @@
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<style>
+
+	#mc-embedded-subscribe {
+    /* change the background of the subscribe button below */
+    background: #000;
+    color: white;
+    margin: auto;
+    text-align: center;
+	}
+
+    .mc-field-group label { 
+    /* change the font family for the label below  */
+	font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+	margin-bottom: 0.2rem;
+}
+
+	#mailchimp-popup{
+    /* change the background colour of the popup below */
+	  background: #FFF;
+	  margin: 10rem auto;
+	  padding:0px 0px 0px;
+	  border-radius: 0px;
+	  width: 50%;
+	  position: relative;
+	  transition: all 3s ease-in-out;
+	  z-index: 3000;
+	  border: 1px solid black;
+	}
+
+    .mailchimp-overlay{
+	  position: fixed;
+	  top: 0;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+	  background: rgba(0, 0, 0, 0.7);
+	  transition: opacity 500ms;
+	  visibility: visible;
+	  opacity: 1;
+	  display: none;
+	  z-index: 3000;
+	}
+	
+	#mailchimp-popup .popup-close{
+	  color: black;
+	  position: absolute;
+	  top: 10px;
+	  right: 10px;
+	  width:3rem;
+	  padding: 1rem;
+	  cursor: pointer;
+	}
+	
+	@media screen and (max-width: 1366px){
+	  #mailchimp-popup{
+		width: 50%;
+	  }
+	}
+	
+	@media screen and (max-width: 992px){
+	  #mailchimp-popup{
+		width: 100%;
+	  }
+	
+	  #mailchimp-popup{
+		margin: 8rem auto;
+		padding:0px 0px 0px;
+		border-radius: 0px;
+		width: 95%;
+		position: relative;
+		transition: all 3s ease-in-out;
+	  z-index: 3000;
+	  }
+	}
+
+</style>
+
+
+	<section class="relative">
+		<div  class="mailchimp-overlay">
+		
+		  <div id="mailchimp-popup">
+			<a href="#" class="popup-close">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.5rem; height: 1.5rem;">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+				  
+			</a>
+		
+			<div class="newsletter-in grid grid-cols-3">
+
+                <!-- Add a custom image on the left column -->
+				<div class="hidden md:flex col-span-1 bg-50" style="background-image: url('/images/brand_logo.png'); border-right: 1px solid black;"></div>
+
+        <!-- Begin Mailchimp Signup Form -->
+
+        <!-------------- Delete below, but take styles as an example when pasting in new mailchimp form ----------->
+
+        
+		<!-- <div id="mc_embed_signup" class="md:col-span-2 col-span-full p-[5%]">
+			<form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self">
+			<div id="mc_embed_signup_scroll">
+				<h2 class="mb-1">Heading here</h2>
+				<p class="mb-2">Subscribe for lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+				<div class="mc-field-group">
+					<label for="mce-FNAME">First Name  <span class="asterisk">*</span>
+				</label>
+					<input type="text" value="" name="FNAME" class="required" id="mce-FNAME" required>
+					<span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
+				</div>
+
+				<div class="mc-field-group mt-2">
+					<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+				</label>
+					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+					<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+				</div>
+
+				<div id="mce-responses" class="clear mt-2">
+					<div class="response" id="mce-error-response" style="display:none"></div>
+					<div class="response" id="mce-success-response" style="display:none"></div>
+				</div>
+				<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d2528b2bf1bdc2369b3716c83_52a110ee82" tabindex="-1" value=""></div>
+				<div class="mt-2 clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+			</div>
+			</form>
+		</div> -->
+		<!--End mc_embed_signup-->
+		</div>
+	</div>
+</div>
+
+</section>
+
+
+<!-- Javascript popup -->
+<script>
+	var delay = 3000; //in milleseconds
+
+jQuery(document).ready(function($){
+  setTimeout(function(){ showMailchimpPopup(); }, delay);
+
+  $('.popup-close').click(function(){
+      $('.mailchimp-overlay').hide();
+
+      //when closed create a cookie to prevent popup to show again on refresh
+      setCookie('mailchimp-popup', 'popped', 30);
+  });
+});
+
+function showMailchimpPopup(){
+  if( getCookie('mailchimp-popup') == ""){
+     $('.mailchimp-overlay').show();
+     setCookie('mailchimp-popup', 'popped', 30);
+  }
+  else{
+    console.log("Newsletter popup blocked.");
+  }
+}
+
+
+function setCookie(cname,cvalue,exdays)
+{
+    var d = new Date();
+    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+    var expires = "expires="+d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires+"; path=/";
+}
+
+function getCookie(cname)
+{
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++)
+    {
+        var c = jQuery.trim(ca[i]);
+        if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+</script>

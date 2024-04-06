@@ -1,0 +1,13 @@
+colours:
+  light_color: '#f7f5f3'
+  medium_color: '#ede8e4'
+  dark_color: 'rgb(60,60,65)'
+  featured_color: '#6495ed'
+  accent_color: 'rgb(167,74,74)'  
+  white-text_color: '#ffffff'
+  black-white_color: '#000000'
+  light-text_color: '#f7f5f3'
+  medium-text_color: 'rgb(90,90,95)'
+  dark-text_color: 'rgb(60,60,65)'
+  featured-text_color: 'red'
+  accent-text_color: 'rgb(167,74,74)'

@@ -1,0 +1,63 @@
+---
+layout: default
+title: Log In - Company Name
+banner_image:
+---
+
+<!-- NOTE -->
+    <!--    
+        1. This page will be the login page, style below as needed
+
+        2. Add the pages you want to password protect in a folder (eg /members )
+           Name the main "logged in" page home.html
+           In auth-routes.txt file, add the pages & folders you want to protect (eg /members/home.html)
+            /members/*   would include all pages within the /members folder
+
+        3. In Cloudcannon do the following: 
+        
+           Go to the Site Settings / Authentication section
+           Select Password and click Switch to Password authentication
+           Enter a password and click Update Site Password
+
+           Cloudcannon will then automatically use this login page when anyone visits /members 
+
+        Guidance: https://cloudcannon.com/documentation/articles/adding-password-authentication-to-your-site/
+     -->
+
+<!-- END NOTE -->
+
+    <style>
+      .incorrect-login-message {
+        display: none;
+      }
+
+      .has-incorrect-login .incorrect-login-message {
+        display: block;
+      }
+
+      input#password {
+        margin-bottom: 0.5rem;
+      }
+    </style>
+
+<!-- banner section -->
+<section class="grid grid-cols-7 items-center text-center bg-cover bg-center min-h-screen" style="background-image: url('{{page.banner_image}}')">
+    <div class="col-span-5 col-start-2">
+        <h1 class="title-lg text-white">Members Area</h1>
+        <p>Please enter the password to access our Members Area.</p>
+
+    <div class="mt-20">
+    <form action="" method="post" class="{% raw %}{{messageClasses}}{% endraw %}">
+        <div class="incorrect-login-message">
+          Incorrect password.
+        </div>
+  
+        <input id="password" type="password" name="password" placeholder="Password" autofocus>
+  
+        <input type="hidden" name="username" value="user">
+  
+        <input type="submit" value="Log in">
+      </form>
+    </div>
+</div>
+</section>

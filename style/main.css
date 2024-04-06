@@ -2,23 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Example of Extracting classes with @apply https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply */
-
 @layer components {
     .font-italic {
       @apply italic
     }
   }
 
-  body {
-    @apply font-body text-black font-light overflow-x-hidden w-[100vw] bg-main;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply font-body bg-light;
+  }
+
+  @font-face {
+    font-family: 'FontName';
+    src: url('/fonts/FontName.woff2') format("woff2"), /* WOFF2 tried first */
+         url('/fonts/FontName.woff') format("woff"), /* WOFF tried second */
+         url('/fonts/FontName.ttf') format("truetype"), /* TTF */ 
+         url('/fonts/FontName.eot') format("embedded-opentype"); /* EOT for Internet Explorer */ 
+         font-weight: normal;
+         font-style: normal;
+  }
+  
   
   h1, h2, h3, h4, h5, h6 {
       @apply font-heading font-light;
   }
 
-  a {
-    @apply font-primary
+  p {
+    @apply mb-8
   }
 
+  /* Heading fonts */
+  .heading-xl {   @apply font-heading text-2xl }
+  .heading-lg {   @apply font-heading text-2xl }
+  .heading-md {  @apply font-heading text-lg   }
+  .heading-sm {  @apply font-heading text-base }
+  .heading-xs {  @apply font-heading text-xs }
+
+  /* Brand styles includes colours */
+  .text-light {color:var(--light);}
+  .text-medium {color:var(--medium);}
+  .text-dark {color:var(--dark);}
+  .text-featured {color:var(--featured);}
+  .text-accent {color:var(--accent);}
+
+  .bg-light {background-color: var(--light);}
+  .bg-medium {background-color: var(--medium);}
+  .bg-dark {background-color: var(--dark);}
+  .bg-featured {background-color: var(--featured);}
+  .bg-accent {background-color: var(--accent);}
+
+  .border-light {border-color: var(--light);}
+  .border-medium {border-color: var(--medium);}
+  .border-dark {border-color: var(--dark);}
+  .border-featured {border-color: var(--featured);}
+  .border-accent {border-color: var(--accent); }
+
+  /* Links, navigation and buttons */
+  a {
+    @apply font-subtitle
+  }
+
+  .button {@apply border border-black bg-light px-8 py-2}
+  .button:hover {@apply bg-dark}

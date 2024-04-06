@@ -1,12 +1,12 @@
 socials:
-  instagram_username: instagram
-  facebook_username:
-  facebook_group:
-  pinterest_username: 
-  linkedin_username:
-  twitter_username:
-  tiktok_username:
+  instagram_username: test
+  facebook_username: test
+  pinterest_username: test
+  linkedin_username: test
+  twitter_username: test
+  tiktok_username: test
+  youtube_username: test
 contact_info:
- email_address:
- mobile_number_text:
+ email:
+ mobile:
  address:
